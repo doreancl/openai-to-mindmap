@@ -30,7 +30,7 @@ export default function Chat({onChat, initialMessage}) {
                 }, {
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${process.env.API_OPENAI_KEY}` // Replace with your actual API key
+                        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_OPENAI_KEY}` // Replace with your actual API key
                     }
                 });
             setResponse(res.data.choices[0].message.content.trim());

@@ -17,9 +17,6 @@ export default function Page() {
         setMindMapId(mindMapId + 1)
     }
 
-    console.log(process.env.API_OPENAI_KEY)
-    console.log(process.env)
-
     return (
         <div>
             <Chat onChat={onChaat} initialMessage={initialMessage}/>
