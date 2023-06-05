@@ -6,7 +6,7 @@ import MindMap from "@/app/mindmap/page";
 import {processCSV} from "@/app/full/chat-to-mindmap";
 import {initialMessage} from "@/app/chat/constants";
 
-export default function Page() {
+export default function Full() {
     const [chatResponse, setChatResponse] = useState(null)
     const [mindMapId, setMindMapId] = useState(0)
 
