@@ -5,7 +5,14 @@ dagreGraph.setDefaultEdgeLabel(() => ({}));
 
 const nodeWidth = 172;
 const nodeHeight = 36;
-export const getLayoutedElements = (nodes, edges, direction = 'LR') => {
+
+/**
+ *
+ * @param nodes
+ * @param edges
+ * @param direction TB | LR
+ */
+export const getLayoutedElements = (nodes, edges, direction = 'TB') => {
     const isHorizontal = direction === 'LR';
     dagreGraph.setGraph({ rankdir: direction });
 
