@@ -5,7 +5,6 @@ import {formatDate} from "@/lib/dates";
 import {postTheme, themes} from "@/constants/post-themes";
 
 export default function PostUI({post, theme = postTheme.main}) {
-    console.log(123123, {post})
     if (!post) return null
     return (
         <>

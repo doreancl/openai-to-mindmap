@@ -19,12 +19,10 @@ export default function NewsList({theme = postTheme.main}) {
         if (!_posts) {
             notFound()
         }
-        console.log("getPosts", {posts}, {_posts})
         setPosts([...posts, ..._posts])
     }, [posts]);
 
     useEffect(() => {
-        console.log("useEffect", theme, getPosts)
         if (posts.length == 0) {
             getPosts(themes[theme].size)
         }
@@ -55,7 +53,9 @@ export default function NewsList({theme = postTheme.main}) {
                     />
                 ))}
             </ul>
-            <button onClick={handleShowMorePosts}>Load more</button>
+            {themes[theme].loadMore && (
+                <button onClick={handleShowMorePosts}>Load more</button>
+            )}
         </>
     )
 }

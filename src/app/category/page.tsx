@@ -19,10 +19,7 @@ export default async function CategoryPage() {
                 mx-auto max-w-7xl
                 flex bg-yellow-500">
                 <div className="">
-                    <NewsList theme={postTheme.main}/>
-
-
-
+                    <NewsList theme={postTheme.bottom}/>
                 </div>
             </div>
         </div>
