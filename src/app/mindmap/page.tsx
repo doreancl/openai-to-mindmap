@@ -4,18 +4,18 @@ import React from 'react';
 import ReactFlow, {ConnectionLineType, useEdgesState, useNodesState,} from 'reactflow';
 
 import 'reactflow/dist/style.css';
-import {getLayoutedElements} from "@/app/mindmap/order";
+import {getLayoutElements} from "@/app/mindmap/order";
 
-export default function MindMap({chatResponse}) {
-    const {nodes: layoutedNodes, edges: layoutedEdges} = getLayoutedElements(
-        chatResponse.nodes,
-        chatResponse.edges
+export default function MindMap(props) {
+    const {nodes: layoutNodes, edges: layoutEdges} = getLayoutElements(
+        props.chatResponse.nodes,
+        props.chatResponse.edges
     );
 
-    const [nodes, setNodes, onNodesChange] = useNodesState(layoutedNodes);
-    const [edges, setEdges, onEdgesChange] = useEdgesState(layoutedEdges);
+    const [nodes, setNodes, onNodesChange] = useNodesState(layoutNodes);
+    const [edges, setEdges, onEdgesChange] = useEdgesState(layoutEdges);
 
-    if (!chatResponse) return;
+    if (!props.chatResponse) return;
 
     return (
         <div style={{height: 400, border: "1px solid"}}>

@@ -12,7 +12,7 @@ const nodeHeight = 36;
  * @param edges
  * @param direction TB | LR
  */
-export const getLayoutedElements = (nodes, edges, direction = 'TB') => {
+export const getLayoutElements = (nodes, edges, direction = 'TB') => {
     const isHorizontal = direction === 'LR';
     dagreGraph.setGraph({ rankdir: direction });
 
@@ -32,7 +32,7 @@ export const getLayoutedElements = (nodes, edges, direction = 'TB') => {
         node.sourcePosition = isHorizontal ? 'right' : 'bottom';
 
         // We are shifting the dagre node position (anchor=center center) to the top left
-        // so it matches the React Flow node anchor point (top left).
+        // ,so it matches the React Flow node anchor point (top left).
         node.position = {
             x: nodeWithPosition.x - nodeWidth / 2,
             y: nodeWithPosition.y - nodeHeight / 2,

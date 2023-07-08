@@ -1,15 +1,15 @@
 'use client';
 
-import {useCallback, useEffect, useState} from 'react';
+import {useCallback, useEffect, useState, useTransition} from 'react';
 import axios from 'axios';
-
-export default function Chat({onChat, initialMessage}) {
-    const [message, setMessage] = useState(initialMessage);
+import {POST} from "@/app/api/completition";
+import '@/styles/buttons.css'
+export default function Chat(props) {
+    const [message, setMessage] = useState(props.initialMessage);
     const [response, setResponse] = useState('');
-
-    useEffect(() => {
-        doRequest()
-    }, [])
+    const [totalResponses, setTotalResponses] = useState(5);
+    const [totalChildResponses, setTotalChildResponses] = useState(2);
+    const [term, setTerm] = useState("code developing best practices");
 
     const doRequest = async () => {
         setResponse("Loading...");
@@ -33,7 +33,7 @@ export default function Chat({onChat, initialMessage}) {
                         'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_OPENAI_KEY}` // Replace with your actual API key
                     }
                 });
-            setResponse(res.data.choices[0].message.content.trim());
+            setResponse("");
             callBack(res.data.choices[0].message.content.trim())
         } catch (error) {
             console.error(error);
@@ -46,13 +46,33 @@ export default function Chat({onChat, initialMessage}) {
     };
 
     const callBack = useCallback((response) => {
-            onChat(response)
-        }, [onChat]
+            props.onChat(response)
+        }, [props.onChat]
     );
+    let [isPending, startTransition] = useTransition();
+
+    useEffect(() => {
+        //doRequest()
+
+        startTransition(async () => {
+            const hola = await POST(message);
+            console.log(hola)
+        })
+    }, [])
 
     return (
         <div>
             <h1>Chat with ChatGPT</h1>
+            <p>
+                GENERATE AN MIND MAP ABOUT {term.toUpperCase()}.<br/>
+                ONLY THE TOP {totalResponses} LVL 2 AND TOP {totalChildResponses} LVL 3 FOR EVERY NODE,<br/>
+                JUST THE TITLES WITHOUT DESCRIPTION, WITHOUT SPACES BETWEEN COLONS,<br/>
+                THE FIRST ROW WILL BE ID,ID PARENT,TITLE, IT WILL BE READ AS CSV<br/>
+                IN THIS FORMAT: ID,ID PARENT,TITLE<br/>
+                WHEN THE PARENT IS EMPTY USE 0<br/>
+                DONT ADD ANYTHING MORE OR NOTES<br/>
+            </p>
+            <br/>
             <form onSubmit={handleMessageSubmit}>
                 <textarea
                     rows={6}
@@ -60,8 +80,9 @@ export default function Chat({onChat, initialMessage}) {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                 />
-                <button type="submit">Send</button>
+                <button className="button-5" type="submit">Send</button>
             </form>
+            {response && <p>{response}</p>}
         </div>
     );
 }

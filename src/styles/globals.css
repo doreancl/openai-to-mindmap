@@ -1,0 +1,9 @@
+.what1 {
+    display: none;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.what2 {
+    display: none;
+}

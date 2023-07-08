@@ -1,9 +1,7 @@
-import Full from "@/app/full/page";
+import CategoryPage from "@/app/category/page";
 
-export default function Home() {
-    return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-            <Full/>
-        </main>
-    )
+export default async function Page() {
+    return <>
+        <CategoryPage/>
+    </>
 }
