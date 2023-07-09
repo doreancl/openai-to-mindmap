@@ -20,24 +20,31 @@ export default function Head() {
             <nav className="bg-gray-800">
                 <div className="flex justify-between relative p-5">
                     <div className="flex bg-green-400 items-center gap-x-5">
-
                         <Link href="#" className="bg-red-500">
                             <FontAwesomeIcon icon={faFacebookF}/>
+                        </Link>
+                        <Link href="#" className="bg-red-500">
                             <FontAwesomeIcon icon={faTwitter}/>
+                        </Link>
+                        <Link href="#" className="bg-red-500">
                             <FontAwesomeIcon icon={faLinkedin}/>
+                        </Link>
+                        <Link href="#" className="bg-red-500">
                             <FontAwesomeIcon icon={faYoutube}/>
+                        </Link>
+                        <Link href="#" className="bg-red-500">
                             <FontAwesomeIcon icon={faInstagram}/>
                         </Link>
                     </div>
                     <div className="flex absolute inset-0 justify-center">
                         <div className="flex space-x-4 items-center">
-                            <a href="#">
+                            <a href="/">
                                 <FontAwesomeIcon icon={faChartSimple}/>
                             </a>
                         </div>
                     </div>
                     <div className="flex  bg-amber-950 items-center">
-                        <FontAwesomeIcon icon={faSearchengin} />
+                        <FontAwesomeIcon icon={faSearchengin}/>
                     </div>
                 </div>
             </nav>

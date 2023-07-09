@@ -30,7 +30,7 @@ export default function RootLayout(
         <body>
         <Head/>
         <SubMenu/>
-        <main>
+        <main className="container mx-auto">
             {children}
         </main>
         <Footer/>

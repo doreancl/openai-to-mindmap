@@ -49,12 +49,22 @@ export default function NewsList({theme = postTheme.main}) {
                     <PostUI
                         key={post.id}
                         theme={theme}
-                        post={post}
+                        link={`/posts/${post.id}`}
+                        post_id={post.id}
+                        image={post.image}
+                        category={post.category}
+                        create_date={post.create_date}
+                        title={post.title}
+                        body={post.body}
                     />
+
                 ))}
             </ul>
             {themes[theme].loadMore && (
-                <button onClick={handleShowMorePosts}>Load more</button>
+                <button onClick={handleShowMorePosts}
+                        className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 my-5 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+                    Load more
+                </button>
             )}
         </>
     )

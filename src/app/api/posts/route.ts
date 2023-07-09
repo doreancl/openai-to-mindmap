@@ -21,7 +21,7 @@ function generateRandomNews(): Post {
     const title = faker.lorem.sentence();
     const create_date = faker.date.past();
     const image = faker.image.url();
-    const body = faker.lorem.paragraph();
+    const body = faker.lorem.paragraphs(20, '\n\n');
     const category = faker.lorem.word();
 
     return {

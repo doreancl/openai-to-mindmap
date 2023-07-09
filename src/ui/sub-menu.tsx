@@ -1,10 +1,10 @@
 'use client';
 
 const navigation = [
-    {name: 'Dashboard', href: '#', current: true},
-    {name: 'Team', href: '#', current: false},
-    {name: 'Projects', href: '#', current: false},
-    {name: 'Calendar', href: '#', current: false},
+    {name: 'Dashboard', href: '/categories', current: true},
+    {name: 'markets', href: '/categories/markets', current: false},
+    {name: 'technology', href: '/categories/technology', current: false},
+    {name: 'healthcare', href: '/categories/healthcare', current: false},
 ]
 
 function classNames(...classes) {
@@ -22,7 +22,7 @@ export default function SubMenu() {
                             href={item.href}
                             className={classNames(
                                 item.current ? 'px-3 py-2 bg-gray-900 text-white' : 'text-black-300 hover:bg-gray-700 hover:text-white',
-                                'rounded-md  text-sm font-medium'
+                                'rounded-md  text-sm font-medium capitalize'
                             )}
                             aria-current={item.current ? 'page' : undefined}
                         >

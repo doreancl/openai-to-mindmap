@@ -1,7 +1,5 @@
-import CategoryPage from "@/app/category/page";
+import {redirect} from "next/navigation";
 
 export default async function Page() {
-    return <>
-        <CategoryPage/>
-    </>
+    redirect('/categories');
 }
