@@ -5,7 +5,7 @@ export function formatDate(date: Date) {
         date = new Date(date);
     }
 
-    const options = {day: 'numeric', month: 'short', year: 'numeric'};
+    const options: Intl.DateTimeFormatOptions = {day: 'numeric', month: 'short', year: 'numeric'};
     const formattedDate = date.toLocaleDateString('en-US', options);
 
     const day = date.getDate();

@@ -1,10 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import {formatDate} from "@/lib/dates";
-import {useCallback, useEffect, useState} from "react";
-import {getBaseUrl} from "@/lib/getBaseUrl";
 import {Post} from "@/app/api/posts/post";
-import {notFound} from "next/navigation";
 import {getPost} from "@/app/api/posts/getPosts";
 
 export default async function PostSlugPage(
