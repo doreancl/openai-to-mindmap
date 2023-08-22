@@ -18,7 +18,7 @@ async function google_get() {
 
 function generateRandomNews(): Post {
     const id = faker.number.int();
-    const title = faker.lorem.sentence();
+    const title = faker.lorem.word();
     const create_date = faker.date.past();
     const image = faker.image.url();
     const body = faker.lorem.paragraphs(20, '\n\n');

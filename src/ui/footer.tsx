@@ -16,7 +16,7 @@ function classNames(...classes) {
 export default function Footer() {
     return (
         <>
-            <nav className="bg-gray-800 flex flex-col gap-y-4 justify-center items-center max-w-7xl mx-auto py-4">
+            <nav className="bg-gray-800 flex flex-col gap-y-4 justify-center items-center max-w-7xl mx-auto py-4 mt-5">
                 <div className="">
                     <a href="#">
                         <FontAwesomeIcon icon={faChartSimple}/>

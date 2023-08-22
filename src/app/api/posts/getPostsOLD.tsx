@@ -8,7 +8,7 @@ import {getBaseUrl} from "@/lib/getBaseUrl";
 // good practise to add `server-only` preemptively.
 //import 'server-only'
 
-export async function getPosts(size): Promise<Post[]> {
+export async function getPostsOLD(size): Promise<Post[]> {
 
     /*
     const data = {

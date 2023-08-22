@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {formatDate} from "@/lib/dates";
 import {Post} from "@/app/api/posts/post";
-import {getPost} from "@/app/api/posts/getPosts";
+import {getPost} from "@/app/api/posts/getPostsOLD";
 
 export default async function PostSlugPage(
     {

@@ -4,32 +4,25 @@ import {Post} from "@/app/api/posts/post";
 import PostUI from "@/ui/post";
 import {postTheme, themes} from "@/constants/post-themes";
 import {useCallback, useEffect, useState} from "react";
-import {getBaseUrl} from "@/lib/getBaseUrl";
-import {notFound} from "next/navigation";
+import {getPosts} from "@/app/api/posts/getPosts";
 
 export default function NewsList({theme = postTheme.main}) {
     const [posts, setPosts] = useState<Post[]>([]);
 
-    const getPosts = useCallback(async (size) => {
-        const res = await fetch(`${getBaseUrl()}/api/posts?size=${size}`,)
-        if (!res.ok) {
-            throw new Error('Something went wrong!')
-        }
-        const _posts: Post[] = (await res.json()) as Post[]
-        if (!_posts) {
-            notFound()
-        }
+    const _getPosts = useCallback(async (size) => {
+        //const _posts = await getPosts(size) as Post[];
+        const _posts: Post[] = (await getPosts(size)) as Post[]
         setPosts([...posts, ..._posts])
     }, [posts]);
 
     useEffect(() => {
         if (posts.length == 0) {
-            getPosts(themes[theme].size)
+            _getPosts(themes[theme].size)
         }
     }, [])
 
     const handleShowMorePosts = () => {
-        getPosts(themes[theme].size)
+        _getPosts(themes[theme].size)
     };
 
     return (
